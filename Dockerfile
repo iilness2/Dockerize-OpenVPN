@@ -23,12 +23,12 @@ RUN make-cadir ~/openvpn-ca
 RUN cd ~/openvpn-ca
 
 # Profile default value
-RUN "echo KEY_COUNTRY="US" \
-KEY_PROVINCE="CA" \
-KEY_CITY="SanFrancisco" \
-KEY_ORG="Fort-Funston" \
-KEY_EMAIL="me@myhost.mydomain" \
-KEY_OU="MyOrganizationalUnit" \
+RUN "echo KEY_COUNTRY="US" \n \
+KEY_PROVINCE="CA" \n \
+KEY_CITY="SanFrancisco" \n \
+KEY_ORG="Fort-Funston" \n \
+KEY_EMAIL="me@myhost.mydomain" \n \
+KEY_OU="MyOrganizationalUnit" \n \
 PUBLIC_IP="192.168.50.11"" > /etc/environments
  
 # Update vars
