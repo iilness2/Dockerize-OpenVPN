@@ -12,7 +12,6 @@ RUN cd $sd
 RUN sd=`pwd`
 
 # Load config
-RUN source config.sh
 RUN source interfaces.sh
 
 # Install OpenVPN and expect
@@ -22,6 +21,15 @@ RUN apt-get -y install openvpn easy-rsa expect
 RUN make-cadir ~/openvpn-ca
 RUN cd ~/openvpn-ca
 
+# Profile default value
+RUN "echo KEY_COUNTRY="US" \
+KEY_PROVINCE="CA" \
+KEY_CITY="SanFrancisco" \
+KEY_ORG="Fort-Funston" \
+KEY_EMAIL="me@myhost.mydomain" \
+KEY_OU="MyOrganizationalUnit" \
+PUBLIC_IP="192.168.50.11"" > /etc/environments
+ 
 # Update vars
 RUN sed -i "s/export KEY_COUNTRY=\"[^\"]*\"/export KEY_COUNTRY=\"${KEY_COUNTRY}\"/" vars
 RUN sed -i "s/export KEY_PROVINCE=\"[^\"]*\"/export KEY_PROVINCE=\"${KEY_PROVINCE}\"/" vars
