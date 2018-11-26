@@ -1,8 +1,11 @@
 FROM ubuntu:16.04
 MAINTAINER Andre Aliaman
 
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get -y --no-install-recommends install software-properties-common language-pack-en-base 
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get -y --no-install-recommends install software-properties-common locales locales-all
 RUN apt-get update && apt-get -y upgrade && apt-get install openvpn easy-rsa expect && apt-get -y autoremove
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8 
 
 # Load config
 COPY interfaces.sh /
