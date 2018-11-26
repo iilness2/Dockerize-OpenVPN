@@ -9,7 +9,5 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install openvpn easy-rsa expect
 # Load config
 COPY interfaces.sh /
 RUN /interfaces.sh
-COPY config.sh /
-RUN /config.sh
 COPY openvpn.sh /
 RUN /openvpn.sh
