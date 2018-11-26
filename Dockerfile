@@ -24,15 +24,6 @@ RUN apt-get -y install openvpn easy-rsa expect
 RUN make-cadir ~/openvpn-ca
 RUN cd ~/openvpn-ca
 
-# Profile default value
-RUN "echo KEY_COUNTRY="US" \n \
-KEY_PROVINCE="CA" \n \
-KEY_CITY="SanFrancisco" \n \
-KEY_ORG="Fort-Funston" \n \
-KEY_EMAIL="me@myhost.mydomain" \n \
-KEY_OU="MyOrganizationalUnit" \n \
-PUBLIC_IP="192.168.50.11"" > /etc/environments
- 
 # Update vars
 RUN sed -i "s/export KEY_COUNTRY=\"[^\"]*\"/export KEY_COUNTRY=\"${KEY_COUNTRY}\"/" vars
 RUN sed -i "s/export KEY_PROVINCE=\"[^\"]*\"/export KEY_PROVINCE=\"${KEY_PROVINCE}\"/" vars
