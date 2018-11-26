@@ -14,6 +14,8 @@ RUN sd=`pwd`
 # Load config
 COPY interfaces.sh /
 RUN /interfaces.sh
+COPY config.sh /
+RUN /config.sh
 
 # Install OpenVPN and expect
 RUN apt-get -y install openvpn easy-rsa expect
