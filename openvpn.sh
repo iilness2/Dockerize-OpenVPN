@@ -8,14 +8,14 @@ cd $sd
 sd=`pwd`
 
 # Make sure config file exists
-if [ ! -f ./config.sh ]; then
+if [ ! -f /config.sh ]; then
   echo "config.sh not found!"
   exit;
 fi
 
 # Load config
-source ./config.sh
-source ./interfaces.sh
+source /config.sh
+source /interfaces.sh
 
 # Set up the CA directory
 make-cadir ~/openvpn-ca

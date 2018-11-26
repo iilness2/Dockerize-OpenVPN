@@ -7,5 +7,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y autoremove
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install openvpn easy-rsa expect
 
 # Load config
+COPY config.sh /
+COPY interfaces.sh /
 COPY openvpn.sh /
 RUN /openvpn.sh
