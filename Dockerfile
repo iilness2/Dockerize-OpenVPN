@@ -12,7 +12,7 @@ RUN cd $sd
 RUN sd=`pwd`
 
 # Load config
-RUN source interfaces.sh
+RUN /bin/bash interfaces.sh
 
 # Install OpenVPN and expect
 RUN apt-get -y install openvpn easy-rsa expect
