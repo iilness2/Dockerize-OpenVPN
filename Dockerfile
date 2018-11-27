@@ -13,6 +13,7 @@ RUN { \
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install openvpn easy-rsa expect nginx php7.0-mysql mysql-server php7.0-fpm nodejs unzip git wget sed npm curl
 
 # Load config
+COPY nginx-www.conf /etc/nginx/sites-available/default
 COPY bower.json /
 ADD css /	
 ADD include /

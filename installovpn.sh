@@ -1,16 +1,22 @@
 #!/bin/bash
 
 www=${WWW_DIR}
+if [[ -z $www ]]; then
+  www="/var/www"
+fi
 
 openvpn_admin="$www/openvpn-admin"
 
 base_path=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 ip_server=${PUBLIC_IP}
+if [[ -z $ip_server ]]; then
+  ip_server="0.0.0.0"
+fi
 
 openvpn_proto=${PROTOCOL_OPENVPN}
 if [[ -z $openvpn_proto ]]; then
-  openvpn_proto="tcp"
+  openvpn_proto="udp"
 fi
 
 server_port=${VPN_PORT}
