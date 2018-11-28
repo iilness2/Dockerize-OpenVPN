@@ -40,7 +40,7 @@ if [[ -z $mysql_pass ]]; then
 fi
 
 key_size=${KEY_SIZE}
-if [[ -z $key_size]]; then
+if [[ -z $key_size ]]; then
   key_size="2048"
 fi
 
