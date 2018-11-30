@@ -9,6 +9,16 @@ openvpn_admin="$www/openvpn-admin"
 
 base_path=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
+private_ip=${PRIV_IP}
+if [[ -z $private_ip ]]; then
+  private_ip="172.16.0.0"
+fi
+
+private_subnetmask=${PRIV_SUBNET_MASK}
+if [[ -z $private_subnetmask ]]; then
+  private_subnetmask="255.255.0.0"
+fi
+
 ip_server=${PUBLIC_IP}
 if [[ -z $ip_server ]]; then
   ip_server="0.0.0.0"
